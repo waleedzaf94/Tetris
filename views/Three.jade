@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    link(rel='stylesheet', type='text/css', href='Style.css')
+    script(src='Script.js')
+    title Tic Tac Toe
+  body
+    center
+      header
+        h2#htitle Tic-Tac-Toe
+      nav
+        a(href='Two.html') Rules
+        a(href='One.html') Game
+        a.active(href='Three.html') Theme
+      br
+      //
+        <button id="start">Start</button>
+        <br><br>
+      section#exp
+        | The theme of the website is pretty basic.
+        | It essentially aims to bring back the memory of some really popular computer games from the turn of the millennium, sort of creating a nostalgic feeling and reminding us of our childhood.
+        | The tic-tac-toe also follows along the same theme, though it dates back even further to a time when computer games didn't really exist for most kids, to perhaps the first ever video game - Bertie the Brain - which was itself a variation of the game of Tic-Tac-Toe.
+      section#aleft
+        // <canvas id="leftCanvas" style="border:2px solid #555555" height="500">
+        img#Doom2(src='Images/Doom2.png', alt='Doom 2')
+        img#NFS(src='Images/NeedForSpeedII.jpg', alt='Need for Speed II')
+        img#Tekken3(src='Images/Tekken3.jpg', alt='Tekken 3')
+        // </canvas>
+      section#aright
+        // <canvas id="rightCanvas">
+        img#LionKing(src='Images/LionKing.png', alt='The Lion King')
+        img#MetalSlug(src='Images/MetalSlugX.jpg', alt='Metal Slug X')
+        img#Hercules(src='Images/Hercules.jpg', alt='Hercules')
+        // </canvas>

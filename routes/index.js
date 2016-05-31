@@ -41,6 +41,10 @@ router.get('/ping', function(req, res){
 	res.status(200).send("pong!");
 });
 
+router.get('/loginLanding', function(req, res){
+	res.render('loginLanding', { user: req.user });
+});
+
 router.get('/', function(req, res){
 	res.render('Game', { user: req.user });
 });

@@ -7,7 +7,7 @@ var router = express.Router();
 // });
 
 router.get('/', function(req, res){
-	res.render('One', {});
+	res.render('Game', {});
 })
 
 router.get('/game', function(req, res){

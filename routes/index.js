@@ -1,4 +1,6 @@
 var express = require('express');
+var passport = require('passport');
+var Account = require('../models/account');
 var router = express.Router();
 
 /* GET home page. */
@@ -6,28 +8,57 @@ var router = express.Router();
 //   res.render('index', { title: 'Express' });
 // });
 
+router.get('/register', function(req, res){
+	res.render('Register', {});
+});
+
+router.post('/register', function(req, res){
+	Account.register(new Account({ username: req.body.username }), req.body.password, function(err, account){
+		if (err){
+			return res.render('Register', { account: account });
+		}
+
+		passport.authenticate('local')(req, res, function(){
+			res.redirect('/');
+		});
+	});
+});
+
+router.get('/login', function(req, res){
+	res.render('Login', { user: req.user });
+});
+
+router.post('/login', passport.authenticate('local'), function(req, res){
+	res.redirect('/');
+});
+
+router.get('/logout', function(req, res){
+	req.logout();
+	res.redirect('/');
+});
+
+router.get('/ping', function(req, res){
+	res.status(200).send("pong!");
+});
+
 router.get('/', function(req, res){
-	res.render('Game', {});
-})
+	res.render('Game', { user: req.user });
+});
 
 router.get('/game', function(req, res){
 	res.render('Game', {});
-})
+});
 
 router.get('/rules', function(req, res){
 	res.render('Rules', {});
-})
+});
 
 router.get('/theme', function(req, res){
 	res.render('Theme', {});
-})
+});
 
 router.get('/comments', function(req, res){
 	res.render('Comments', {});
-})
-
-router.get('/login', function(req, res){
-	res.render('Login', {});
-})
+});
 
 module.exports = router;

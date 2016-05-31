@@ -1,5 +1,11 @@
 extends layout
 block content
 	section#exp
-		| Comments
+		h1 Comments
+		form(method="POST" action="/Comments")
+			label(for="comment") Comment:
+			input(type="text", name="comment", value="Comment")
+			input(type="submit", value="Save")
 		br
+		- for comment in comments
+			p= comment.comment

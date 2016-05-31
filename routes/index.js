@@ -10,16 +10,24 @@ router.get('/', function(req, res){
 	res.render('One', {});
 })
 
-router.get('/One.html', function(req, res){
-	res.render('One', {});
+router.get('/game', function(req, res){
+	res.render('Game', {});
 })
 
-router.get('/Two.html', function(req, res){
-	res.render('Two', {});
+router.get('/rules', function(req, res){
+	res.render('Rules', {});
 })
 
-router.get('/Three.html', function(req, res){
-	res.render('Three', {});
+router.get('/theme', function(req, res){
+	res.render('Theme', {});
+})
+
+router.get('/comments', function(req, res){
+	res.render('Comments', {});
+})
+
+router.get('/login', function(req, res){
+	res.render('Login', {});
 })
 
 module.exports = router;

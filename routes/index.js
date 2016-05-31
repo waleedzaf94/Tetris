@@ -1,6 +1,8 @@
 var express = require('express');
 var passport = require('passport');
 var Account = require('../models/account');
+var mongoose = require('mongoose');
+var Comment = mongoose.model('comments');
 var router = express.Router();
 
 /* GET home page. */
@@ -50,19 +52,31 @@ router.get('/', function(req, res){
 });
 
 router.get('/game', function(req, res){
-	res.render('Game', {});
+	res.render('Game', { user: req.user });
 });
 
 router.get('/rules', function(req, res){
-	res.render('Rules', {});
+	res.render('Rules', { user: req.user });
 });
 
 router.get('/theme', function(req, res){
-	res.render('Theme', {});
+	res.render('Theme', { user: req.user });
 });
 
 router.get('/comments', function(req, res){
-	res.render('Comments', {});
+	Comment.find(function(err, comments){
+		console.log(comments);
+		res.render(
+			'Comments',
+			{ comments: comments }
+		);	
+	});
+	// res.render('Comments', { user: req.user });
+});
+
+router.post('/comments', function(req, res){
+	console.log(req.body.comment);
+	res.redirect('Comments');
 });
 
 module.exports = router;

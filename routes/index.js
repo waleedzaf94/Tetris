@@ -69,15 +69,22 @@ router.get('/comments', function(req, res){
 		console.log(comments);
 		res.render(
 			'Comments',
-			{ comments: comments }
+			{ comments: comments, user: req.user }
 		);	
 	});
 	// res.render('Comments', { user: req.user });
 });
 
 router.post('/comments', function(req, res){
-	console.log(req.body.comment);
-	res.redirect('Comments');
+	new Comment({ comment: req.body.comment, username: req.user })
+		.save(function(err, comment){
+			console.log(comment);
+			console.log(req.body.comment);
+			console.log(req.user);
+			res.redirect('Comments');
+		});
+	// console.log(req.body.comment);
+	// res.redirect('Comments');
 });
 
 module.exports = router;

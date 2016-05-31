@@ -2,18 +2,20 @@ extends layout
 block content
 	section#exp
 		h1 Comments
+		//br
+		//p #{user.username}
 		//p Comment:
-		form(role='form', action='/comments', method='POST', style='max-width: 300px;')
-			.form-group
-				input.form-control(type='text', name='comment', placeholder='Comment')
+		//form(role='form', action='/comments', method='POST', style='max-width: 300px;')
+		//	.form-group
+		//		input.form-control(type='text', name='comment', placeholder='Comment')
+		//	br
+		//	button.btn.btn-default(type='submit') Submit
+		form(method="POST" action="/Comments")
+			label(for="comment") Comment: &nbsp
+			input(type="textarea", name="comment")
 			br
-			button.btn.btn-default(type='submit') Submit
-		//form(method="POST" action="/Comments")
-		//	label(for="comment") Comment: &nbsp
-		//	input(type="textarea", name="comment")
-		//	br
-		//	br
-		//	input(type="submit", value="Save")
+			br
+			input(type="submit", value="Save")
 		br
 		- for comment in comments
 			p= comment.comment

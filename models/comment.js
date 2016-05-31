@@ -19,3 +19,5 @@ var Comment = new Schema({
 });
 
 module.exports = mongoose.model('Comment', Comment);
+
+// mongoose.connect('mongodb://localhost/TicTac');

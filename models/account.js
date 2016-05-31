@@ -8,13 +8,13 @@ var Account = new Schema({
 	password: String
 });
 
-var Comment = new Schema({
-	username: String,
-	comment: String,
-	date: Date
-});
+// var Comment = new Schema({
+// 	username: String,
+// 	comment: String,
+// 	date: Date
+// });
 
 Account.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('Account', Account);
-module.exports = mongoose.model('Comment', Comment);
+// module.exports = mongoose.model('Comment', Comment);

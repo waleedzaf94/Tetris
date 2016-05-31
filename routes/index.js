@@ -2,7 +2,8 @@ var express = require('express');
 var passport = require('passport');
 var Account = require('../models/account');
 var mongoose = require('mongoose');
-var Comment = mongoose.model('comments');
+// var Comment = mongoose.model('Comment');
+var Comment = require('../models/comment');
 var router = express.Router();
 
 /* GET home page. */

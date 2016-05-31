@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -9,7 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 ////
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 ////
@@ -38,6 +39,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 ////
 
+var Comment = require('./models/comment');
+// app.use('/Comments', comment);
+
 app.use('/', routes);
 // app.use('/users', users);
 
@@ -50,6 +54,8 @@ passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
 mongoose.connect('mongodb://localhost/TicTac');
+
+// var Comment = require('./models/comment');
 ////
 
 // catch 404 and forward to error handler

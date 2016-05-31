@@ -1,42 +1,7 @@
-doctype html
-html
-  head
-    meta(charset='UTF-8')
-    link(rel='stylesheet', type='text/css', href='Style.css')
-    script(src='Script.js')
-    title Tic Tac Toe
-  body
-    center
-      header
-        h2#htitle Tic Tac Toe
-      nav
-        a(href='Two.html') Rules
-        a.active(href='One.html') Game
-        a(href='Three.html') Theme
-      br
-      button#reset(onclick='resetGame()') Reset
-      br
-      br
-      canvas#mainCanvas(width='360', height='360', style='border:2px solid #909090;')
-      section#aleft
-        // <canvas id="leftCanvas" style="border:2px solid #555555" height="500">
-        img#Doom2(src='Images/Doom2.png', alt='Doom 2')
-        img#NFS(src='Images/NeedForSpeedII.jpg', alt='Need for Speed II')
-        img#Tekken3(src='Images/Tekken3.jpg', alt='Tekken 3')
-        // </canvas>
-      section#aright
-        // <canvas id="rightCanvas">
-        img#LionKing(src='Images/LionKing.png', alt='The Lion King')
-        img#MetalSlug(src='Images/MetalSlugX.jpg', alt='Metal Slug X')
-        img#Hercules(src='Images/Hercules.jpg', alt='Hercules')
-        // </canvas>
-      br
-      br
-      br
-      //
-        <button id="debug">A | </button>
-        <br>
-        <button id="d2">B | </button>
-        <br>
-        <button id="d3">C | </button>
-      footer#foot
+
+extends layout
+block content
+  button#reset(onclick='resetGame()') Reset
+  br
+  br
+  canvas#mainCanvas(width='360', height='360', style='border:2px solid #909090;')

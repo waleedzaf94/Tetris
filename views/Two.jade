@@ -1,35 +1,7 @@
-doctype html
-html
-  head
-    meta(charset='UTF-8')
-    link(rel='stylesheet', type='text/css', href='Style.css')
-    script(src='Script.js')
-    title Tic Tac Toe
-  body
-    center
-      header
-        h2#htitle Tic-Tac-Toe
-      nav
-        a.active(href='Two.html') Rules
-        a(href='One.html') Game
-        a(href='Three.html') Theme
-      br
-      //
-        <button id="start">Start</button>
-        <br><br>
-      section#exp
-        | The rules of the game are really quite simple. It's basic Tic-Tac-Toe. The objective of the game is to get three circles or crosses in a line. Each player takes a turn, and marks one of the empty blocks using their assigned marker (either a circle or a square). The first player to get either three in a row, in a column, or diagonally wins. Failure to get three in a straight line by either player results in a draw.
-        br
-        | 			This game is designed as a single player game, to be played against the computer. The user simply clicks on an empty block where he/she wishes to mark. The computer plays a counter move, and the game proceeds.
-      section#aleft
-        // <canvas id="leftCanvas" style="border:2px solid #555555" height="500">
-        img#Doom2(src='Images/Doom2.png', alt='Doom 2')
-        img#NFS(src='Images/NeedForSpeedII.jpg', alt='Need for Speed II')
-        img#Tekken3(src='Images/Tekken3.jpg', alt='Tekken 3')
-        // </canvas>
-      section#aright
-        // <canvas id="rightCanvas">
-        img#LionKing(src='Images/LionKing.png', alt='The Lion King')
-        img#MetalSlug(src='Images/MetalSlugX.jpg', alt='Metal Slug X')
-        img#Hercules(src='Images/Hercules.jpg', alt='Hercules')
-        // </canvas>
+extends layout
+block content
+  section#exp
+    | The rules of the game are really quite simple. It's basic Tic-Tac-Toe. The objective of the game is to get three circles or crosses in a line. Each player takes a turn, and marks one of the empty blocks using their assigned marker (either a circle or a square). The first player to get either three in a row, in a column, or diagonally wins. Failure to get three in a straight line by either player results in a draw.
+    br
+    | 			This game is designed as a single player game, to be played against the computer. The user simply clicks on an empty block where he/she wishes to mark. The computer plays a counter move, and the game proceeds.
+

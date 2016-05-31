@@ -3,9 +3,19 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Comment = new Schema({
-	username: String,
-	comment: String,
-	date: Date
+	username: {
+		type: String,
+		required: true
+	},
+	comment: {
+		type: String,
+		required: true
+	},
+	date: {
+		type: String,
+		required: true,
+		"default": Date.now
+	}
 });
 
 module.exports = mongoose.model('Comment', Comment);

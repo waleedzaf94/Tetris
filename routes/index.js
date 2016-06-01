@@ -7,11 +7,6 @@ var Comment = require('../models/comment');
 var Score = require('../models/score');
 var router = express.Router();
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
-
 router.get('/register', function(req, res){
 	res.render('Register', {});
 });
@@ -154,5 +149,11 @@ router.post('/comments', function(req, res){
 	// console.log(req.body.comment);
 	// res.redirect('Comments');
 });
+
+router.get('/scoreboard', function(req, res){
+	Score.find(function(err, scores){
+		res.render('Scoreboard', { scores: scores })
+	})
+})
 
 module.exports = router;

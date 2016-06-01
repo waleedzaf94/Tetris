@@ -1,0 +1,23 @@
+extends layout
+block content
+	section#exp
+		- num=0
+		table
+			tr
+				th Num
+				th Username
+				th Wins
+				th Losses
+			- for score in scores
+				tr
+					td #{num++}
+					td #{score.username}
+					td #{score.wins}
+					td #{score.losses}
+		
+
+		//section#commentContainer
+		//	p Num Username Wins Losses
+		//- for score in scores
+		//	section#commentContainer
+		//		p #{num++} #{score.username} #{score.wins} #{score.losses}

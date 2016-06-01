@@ -45,6 +45,29 @@ nav a {
 	/*bottom-border: thick #ff0000;*/
 }
 
+table {
+	background-color: #f1ffff;
+	font-family: sans-serif;
+	display: block;
+	padding: 1px 1px 1px 1px;
+	text-align: center;
+	border-style: groove;
+	border-color: #ffffff;
+}
+
+th {
+	display: block-inline;
+	border-style: groove;
+	width: 25vw;
+}
+
+td {
+	display: block-inline;
+	border-style: groove;
+	font-weight: lighter;
+	width: 25vw;
+}
+
 nav a:hover:not(.active) {
 	background-color: #ffdd99;
 }
@@ -116,6 +139,11 @@ footer {
 	font-size: large;
 	font-weight: bolder;
 	width: 35%;
+}
+
+p {
+	font-size: normal;
+	font-weight: normal;
 }
 
 #refs {

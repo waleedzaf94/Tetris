@@ -141,6 +141,21 @@ footer {
 	width: 35%;
 }
 
+#ext {
+	margin-top: 1%;
+	padding: 1vw 1vw 1vw 1vw;
+	border: groove;
+	display: inline-block;
+	/*display: block;*/
+	font-family: sans-serif;
+	font-size: normal;
+	font-weight: normal;
+	width: 35%;
+	background-color: rgba(200, 240, 240, 0.3);
+	color: rgb(50, 50, 50);
+	text-align: center;
+}
+
 p {
 	font-size: normal;
 	font-weight: normal;

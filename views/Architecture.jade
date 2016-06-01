@@ -1,13 +1,23 @@
 extends layout
 block content
-	section#exp
+	section#ext
+		h3 Architecture
 		| The website is developed using the MEAN stack. 
+		br
 		| The backend uses an Express framework running on a Node.js execution environment, alongside a Mongo database.
+		br
 		| While the MEAN stack also uses Angular JS, the current website does not really utilize the MVC framework particular to Angular, rather utilizing some basic Javascript to enable the Tic Tac Toe game to run from the client side.
+		br
 		| The front end views are developed using Jade templates, with some basic model objects required for the website's operation passed in via the routes. Currently, the website does not explicitly use controllers. 
+		br
 		| The overall design of the website is incredibly basic, essentially just utilizing a navigation bar towards the top alongside two sidebars populated with images promoting the website's theme. Such a design, while quite simple, also presents itself as being quite easy to use and navigate.
+		br
 		| All the views extend from a common layout, hence share the navigation bar and side bars, with just the middle portion of each page actually containing content unique to each view. This enables all the web pages to follow a highly consistent design scheme. 
+		be
 		| The server side currently utilizes three different models - scores, comments and user accounts, all stored in the Mongo database with the help of the mongoose package. 
+		br
 		| The user authentication utilizes the passport package, which enables the password stored in the backend to be encrypted, leading to additional security. 
+		br
 		| The website also features a scoreboard that displays the wins and losses for each player registered with the website. 
+		br
 		| Due to time constraints, the website currently does not include any unit tests, so the development process included just manual checks using the mongo terminal and node console to ensure that data transmission among the views and towards the database was accurate.

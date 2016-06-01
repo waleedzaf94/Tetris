@@ -9,6 +9,7 @@ var crLoaded = false;
 var turn = true;
 var block, circle, cross;
 var footer;
+var wins = 0, losses = 0;
 
 function updateBoard() {
 
@@ -129,6 +130,7 @@ function compMove() {
 }
 
 function resetGame() {
+	post('/game', { wins: wins, losses: losses })
 	board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	updateBoard();
 	turn = true;
@@ -139,10 +141,12 @@ function checkGameOver() {
 		if (turn == false){
 			// prompt("You Win!");
 			alert("You Win!");
+			wins++;
 		}
 		else{
 			// prompt("You Lose!");
 			alert("You Lose!");
+			losses++;
 		}
 		resetGame();
 	}
@@ -150,10 +154,12 @@ function checkGameOver() {
 		if (turn == false){
 			// prompt("You Win!");
 			alert("You Win!");
+			wins++;
 		}
 		else{
 			// prompt("You Lose!");
 			alert("You Lose!");
+			losses++;
 		}
 		resetGame();
 	}
@@ -161,10 +167,12 @@ function checkGameOver() {
 		if (turn == false){
 			// prompt("You Win!");
 			alert("You Win!");
+			wins++;
 		}
 		else{
 			// prompt("You Lose!");
 			alert("You Lose!");
+			losses++;
 		}
 		resetGame();
 	}
@@ -172,10 +180,12 @@ function checkGameOver() {
 		if (turn == false){
 			// prompt("You Win!");
 			alert("You Win!");
+			wins++;
 		}
 		else{
 			// prompt("You Lose!");
 			alert("You Lose!");
+			losses++;
 		}
 		resetGame();
 	}
@@ -183,10 +193,12 @@ function checkGameOver() {
 		if (turn == false){
 			// prompt("You Win!");
 			alert("You Win!");
+			wins++;
 		}
 		else{
 			// prompt("You Lose!");
 			alert("You Lose!");
+			losses++;
 		}
 		resetGame();
 	}
@@ -194,10 +206,12 @@ function checkGameOver() {
 		if (turn == false){
 			// prompt("You Win!");
 			alert("You Win!");
+			wins++;
 		}
 		else{
 			// prompt("You Lose!");
 			alert("You Lose!");
+			losses++;
 		}
 		resetGame();
 	}
@@ -205,10 +219,12 @@ function checkGameOver() {
 		if (turn == false){
 			// prompt("You Win!");
 			alert("You Win!");
+			wins++;
 		}
 		else{
 			// prompt("You Lose!");
 			alert("You Lose!");
+			losses++;
 		}
 		resetGame();
 	}
@@ -216,10 +232,12 @@ function checkGameOver() {
 		if (turn == false){
 			// prompt("You Win!");
 			alert("You Win!");
+			wins++;
 		}
 		else{
 			// prompt("You Lose!");
 			alert("You Lose!");
+			losses++;
 		}
 		resetGame();
 	}
@@ -235,6 +253,28 @@ function updateTime(){
 	if (secs < 10) secs = "0" + secs;
 	footer.innerHTML = hours + ":" + mins + ":" + secs;
 	setTimeout(updateTime, 1000);
+}
+
+function post(path, params, method){
+	method = method || "post";
+
+	var form = document.createElement("form");
+	form.setAttribute("method", method);
+	form.setAttribute("action", path);
+
+	for (var key in params){
+		if (params.hasOwnProperty(key)){
+			var hiddenField = document.createElement("input");
+			hiddenField.setAttribute("type", "hidden");
+			hiddenField.setAttribute("name", key);
+			hiddenField.setAttribute("value", params[key]);
+
+			form.appendChild(hiddenField);
+		}
+	}
+
+	document.body.appendChild(form);
+	form.submit();
 }
 
 window.onload = init;

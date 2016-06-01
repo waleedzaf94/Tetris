@@ -57,7 +57,7 @@ router.get('/game', function(req, res){
 	if (req.user){
 		Score.find({ "username": req.user.username }, 
 			function(err, score){
-				console.log(score[0]);
+				// console.log(score[0]);
 				res.render('Game', {user: req.user, score: score[0]});
 			});
 	}
@@ -65,6 +65,64 @@ router.get('/game', function(req, res){
 		res.render('Game', {user: req.user});
 	}
 });
+
+router.post('/game', function(req, res){
+	if (req.user){
+		Score.find({ "username": req.user.username },
+			function(err, score){
+				var s = score[0];
+				if (s != undefined){
+					var w = s.wins;
+					var l = s.losses;
+				}
+				else{
+					var w = 0;
+					var l = 0;
+				}
+				var ww = +w + +req.body.wins;
+				var ll = +l + +req.body.losses;
+				// if (s == undefined){
+				if (s != undefined){
+					Score.remove({ "username": req.user.username }, function(err){
+						console.log("removed");
+						new Score({ username: req.user.username, wins: ww, losses: ll })
+							.save(function(err, score){
+								console.log("Username: " + req.user.username);
+								console.log("Wins: " + ww);
+								console.log("Losses: " + ll);
+								res.redirect('Game');
+						});
+						// res.redirect('Game');
+					});
+					// console.log("removed");
+					// res.redirect('Game');
+				}
+				else{
+					new Score({ username: req.user.username, wins: ww, losses: ll })
+						.save(function(err, score){
+							
+							console.log("Username: " + req.user.username);
+							console.log("Wins: " + ww);
+							console.log("Losses: " + ll);
+							res.redirect('Game');
+						});
+				}
+				// else{
+				// 	console.log("Updating");
+				// 	console.log("Wins: " + +w + +req.body.wins);
+				// 	console.log("Losses: " + +l + +req.body.losses);
+				// 	Score.update({ username: req.user.username }, {$set: {wins: +w + +req.body.wins, losses: +l + +req.body.losses}})
+				// }
+			});
+		// new Score({ username: req.user.username, wins: req.body.wins, losses: req.body.losses })
+		// 	.save(function(err, score){
+		// 		res.redirect('Game');
+		// 	})
+	}
+	else{
+		console.log("No user");
+	}
+})
 
 router.get('/rules', function(req, res){
 	res.render('Rules', { user: req.user });

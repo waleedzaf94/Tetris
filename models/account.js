@@ -9,8 +9,7 @@ var Account = new Schema({
 		required: true
 	},
 	password: {
-		type: String,
-		required: true
+		type: String
 	}
 });
 

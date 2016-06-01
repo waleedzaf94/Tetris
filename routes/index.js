@@ -155,8 +155,12 @@ router.post('/comments', function(req, res){
 
 router.get('/scoreboard', function(req, res){
 	Score.find(function(err, scores){
-		res.render('Scoreboard', { scores: scores })
-	})
-})
+		res.render('Scoreboard', { scores: scores });
+	});
+});
+
+router.get('/architecture', function(req, res){
+	res.render('Architecture', { user: req.user });
+});
 
 module.exports = router;

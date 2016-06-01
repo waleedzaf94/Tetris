@@ -5,9 +5,8 @@ block content
 		button#reset(onclick='resetGame()') Reset
 		br
 		br
-		if (user)
+		if (score)
 			section#commentContainer
 				p Wins: #{score.wins} | Losses: #{score.losses}
-			br
 			br
 		canvas#mainCanvas(width='360', height='360', style='border:2px solid #909090;')

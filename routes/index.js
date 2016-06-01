@@ -50,11 +50,20 @@ router.get('/loginLanding', function(req, res){
 });
 
 router.get('/', function(req, res){
-	res.render('Game', { user: req.user });
+	res.redirect('Game')
 });
 
 router.get('/game', function(req, res){
-	res.render('Game', { user: req.user });
+	if (req.user){
+		Score.find({ "username": req.user.username }, 
+			function(err, score){
+				console.log(score[0]);
+				res.render('Game', {user: req.user, score: score[0]});
+			});
+	}
+	else {
+		res.render('Game', {user: req.user});
+	}
 });
 
 router.get('/rules', function(req, res){

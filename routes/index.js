@@ -4,6 +4,7 @@ var Account = require('../models/account');
 var mongoose = require('mongoose');
 // var Comment = mongoose.model('Comment');
 var Comment = require('../models/comment');
+var Score = require('../models/score');
 var router = express.Router();
 
 /* GET home page. */

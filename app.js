@@ -40,6 +40,7 @@ app.use(passport.session());
 ////
 
 var Comment = require('./models/comment');
+var Score = require('./models/score');
 // app.use('/Comments', comment);
 
 app.use('/', routes);

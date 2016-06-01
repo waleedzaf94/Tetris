@@ -76,7 +76,7 @@ router.get('/comments', function(req, res){
 });
 
 router.post('/comments', function(req, res){
-	new Comment({ comment: req.body.comment, username: req.user })
+	new Comment({ comment: req.body.comment, username: req.user.username })
 		.save(function(err, comment){
 			console.log(comment);
 			console.log(req.body.comment);

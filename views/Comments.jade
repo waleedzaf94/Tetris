@@ -11,11 +11,18 @@ block content
 		//	br
 		//	button.btn.btn-default(type='submit') Submit
 		form(method="POST" action="/Comments")
-			label(for="comment") Comment: &nbsp
+			label(for="comment") Please leave a comment: &nbsp
+			br
 			input(type="textarea", name="comment")
 			br
-			br
-			input(type="submit", value="Save")
+			if (!user)
+				p Please sign in to leave a comment!
+			if (user)
+				br
+				input(type="submit", value="Save")
 		br
 		- for comment in comments
-			p= comment.comment
+			section#commentContainer
+				p #{comment.username} : #{comment.comment}
+			//br
+		//	p= comment.comment

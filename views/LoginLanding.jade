@@ -1,11 +1,19 @@
 extends layout
 block content
-	section#exp
+	section#ext
+		br
+		u
+			b Please login or register
+		br
+		br
 		if (!user)
 			a(href='/login') Login
 			br
 			br
+			br
 			a(href='/register') Register
+			br
+			br
 		if (user)
 			p You are currently logged in as #{user.username}
 			a(href='/logout') Logout

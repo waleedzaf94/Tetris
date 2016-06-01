@@ -163,4 +163,8 @@ router.get('/architecture', function(req, res){
 	res.render('Architecture', { user: req.user });
 });
 
+router.get('/references', function(req, res){
+	res.render('References', { user: req.user });
+});
+
 module.exports = router;

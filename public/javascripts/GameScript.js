@@ -80,11 +80,11 @@ function updateBoard() {
 }
 
 function init(){
-	footer = document.getElementById("foot");
+	// footer = document.getElementById("foot");
 	canvas = document.getElementById("mainCanvas");
 	ctx = canvas.getContext("2d");
 	canvas.addEventListener("click", mouseHandler, false);
-	updateTime();
+	// updateTime();
 	block = new Image();
 	circle = new Image();
 	cross = new Image();

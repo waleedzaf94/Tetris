@@ -167,4 +167,8 @@ router.get('/references', function(req, res){
 	res.render('References', { user: req.user });
 });
 
+router.get('/gametwo', function(req, res){
+	res.render('Gametwo', { user: req.user });
+})
+
 module.exports = router;

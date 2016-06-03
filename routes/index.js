@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 // var Comment = mongoose.model('Comment');
 var Comment = require('../models/comment');
 var Score = require('../models/score');
+var http = require('http').Server(express);
+var io = require('socket.io')(http);
 var router = express.Router();
 
 router.get('/register', function(req, res){
@@ -169,6 +171,14 @@ router.get('/references', function(req, res){
 
 router.get('/gametwo', function(req, res){
 	res.render('Gametwo', { user: req.user });
-})
+});
+
+http.listen(3001, function(){
+	console.log('listening on *:3001');
+});
+
+io.on('connection', function(socket){
+	console.log('a user connected');
+});
 
 module.exports = router;
